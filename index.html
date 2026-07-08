@@ -594,7 +594,7 @@
 
     .tools-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
       gap: 16px;
     }
 
@@ -645,8 +645,8 @@
     }
 
     .tool-logo-wrap img {
-      width: 42px;
-      height: 42px;
+      width: 54px;
+      height: 54px;
       object-fit: contain;
     }
 
@@ -1368,55 +1368,71 @@
         <div class="tools-grid">
           <a class="tool reveal" href="https://www.canva.com/" target="_blank" rel="noopener">
             <div class="tool-logo-wrap">
-              <img src="https://cdn.simpleicons.org/canva" alt="Canva logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
+              <img src="assets/tools/canva.png" alt="Canva logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
               <div class="tool-logo-fallback">C</div>
             </div>
             <span>Canva</span>
             <small>Design</small>
           </a>
+          <a class="tool reveal" href="https://www.microsoft.com/en-us/microsoft-365/excel" target="_blank" rel="noopener">
+            <div class="tool-logo-wrap">
+              <img src="assets/tools/microsoft-excel.png" alt="Microsoft Excel logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
+              <div class="tool-logo-fallback">E</div>
+            </div>
+            <span>Microsoft Excel</span>
+            <small>Data</small>
+          </a>
           <a class="tool reveal" href="https://www.microsoft.com/en/microsoft-365/word" target="_blank" rel="noopener">
             <div class="tool-logo-wrap">
-              <img src="https://cdn.simpleicons.org/microsoftword/2B579A" alt="Microsoft Word logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
+              <img src="assets/tools/microsoft-word.png" alt="Microsoft Word logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
               <div class="tool-logo-fallback">W</div>
             </div>
             <span>Microsoft Word</span>
             <small>Writing</small>
           </a>
-          <a class="tool reveal" href="https://www.microsoft.com/en-us/microsoft-365/excel" target="_blank" rel="noopener">
-            <div class="tool-logo-wrap">
-              <img src="https://cdn.simpleicons.org/microsoftexcel/217346" alt="Microsoft Excel logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
-              <div class="tool-logo-fallback">X</div>
-            </div>
-            <span>Microsoft Excel</span>
-            <small>Data</small>
-          </a>
           <a class="tool reveal" href="https://www.adobe.com/products/photoshop.html" target="_blank" rel="noopener">
             <div class="tool-logo-wrap">
-              <img src="https://cdn.simpleicons.org/adobephotoshop/31A8FF" alt="Photoshop logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
-              <div class="tool-logo-fallback">Ps</div>
+              <img src="assets/tools/photoshop.png" alt="Photoshop logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
+              <div class="tool-logo-fallback">P</div>
             </div>
             <span>Photoshop</span>
             <small>Editing</small>
           </a>
-          <a class="tool reveal" href="https://www.adobe.com/products/premiere.html" target="_blank" rel="noopener">
+          <a class="tool reveal" href="https://vlognow.me/" target="_blank" rel="noopener">
             <div class="tool-logo-wrap">
-              <img src="https://cdn.simpleicons.org/adobepremierepro/9999FF" alt="Premiere Pro logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
-              <div class="tool-logo-fallback">Pr</div>
+              <img src="assets/tools/vn-editor.png" alt="VN Editor logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
+              <div class="tool-logo-fallback">VE</div>
             </div>
-            <span>Premiere Pro</span>
+            <span>VN Editor</span>
             <small>Video</small>
           </a>
           <a class="tool reveal" href="https://www.capcut.com/tools/online-video-editor" target="_blank" rel="noopener">
             <div class="tool-logo-wrap">
-              <img src="https://cdn.simpleicons.org/capcut/000000" alt="CapCut logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
-              <div class="tool-logo-fallback">CC</div>
+              <img src="assets/tools/capcut.png" alt="CapCut logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
+              <div class="tool-logo-fallback">C</div>
             </div>
             <span>CapCut</span>
             <small>Video</small>
           </a>
+          <a class="tool reveal" href="https://marvelapp.com/" target="_blank" rel="noopener">
+            <div class="tool-logo-wrap">
+              <img src="assets/tools/marvel.png" alt="Marvel logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
+              <div class="tool-logo-fallback">M</div>
+            </div>
+            <span>Marvel</span>
+            <small>Prototype</small>
+          </a>
+          <a class="tool reveal" href="https://www.adobe.com/products/premiere.html" target="_blank" rel="noopener">
+            <div class="tool-logo-wrap">
+              <img src="assets/tools/premiere-pro.png" alt="Premiere Pro logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
+              <div class="tool-logo-fallback">PP</div>
+            </div>
+            <span>Premiere Pro</span>
+            <small>Video</small>
+          </a>
           <a class="tool reveal" href="https://drive.google.com/" target="_blank" rel="noopener">
             <div class="tool-logo-wrap">
-              <img src="https://cdn.simpleicons.org/googledrive" alt="Google Drive logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
+              <img src="assets/tools/google-drive.png" alt="Google Drive logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
               <div class="tool-logo-fallback">GD</div>
             </div>
             <span>Google Drive</span>
@@ -1424,27 +1440,19 @@
           </a>
           <a class="tool reveal" href="https://docs.google.com/presentation/create" target="_blank" rel="noopener">
             <div class="tool-logo-wrap">
-              <img src="https://cdn.simpleicons.org/googleslides/FBBC04" alt="Google Slides logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
+              <img src="assets/tools/google-slides.png" alt="Google Slides logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
               <div class="tool-logo-fallback">GS</div>
             </div>
             <span>Google Slides</span>
             <small>Deck</small>
           </a>
-          <a class="tool reveal" href="https://vlognow.me/" target="_blank" rel="noopener">
+          <a class="tool reveal" href="https://picsart.com/" target="_blank" rel="noopener">
             <div class="tool-logo-wrap">
-              <img src="https://play-lh.googleusercontent.com/k8Uu9gHgYpBSCaQVVlQPJ8nZe12BKt6lMD3K0E4SNZDwKzDoC0tWbZ8dAPwVCiUM=w240-h480-rw" alt="VN Editor logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
-              <div class="tool-logo-fallback">VN</div>
+              <img src="assets/tools/picsart.png" alt="Picsart logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
+              <div class="tool-logo-fallback">P</div>
             </div>
-            <span>VN Editor</span>
-            <small>Video</small>
-          </a>
-          <a class="tool reveal" href="https://marvelapp.com/" target="_blank" rel="noopener">
-            <div class="tool-logo-wrap">
-              <img src="https://cdn.simpleicons.org/marvelapp/1FB6FF" alt="Marvel logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
-              <div class="tool-logo-fallback">M</div>
-            </div>
-            <span>Marvel</span>
-            <small>Prototype</small>
+            <span>Picsart</span>
+            <small>Design</small>
           </a>
         </div>
       </div>
