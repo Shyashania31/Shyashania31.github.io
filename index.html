@@ -595,40 +595,93 @@
     .tools-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
+      gap: 16px;
     }
 
     .tool {
-      padding: 18px 14px;
-      border: 1px solid rgba(255, 255, 255, .68);
-      border-radius: 22px;
-      background: rgba(255, 255, 255, .72);
+      position: relative;
+      min-height: 158px;
+      padding: 18px 14px 16px;
+      border: 1px solid rgba(255, 255, 255, .72);
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at 25% 18%, rgba(255, 255, 255, .88), transparent 42%),
+        rgba(255, 255, 255, .74);
       box-shadow: 0 14px 30px rgba(121, 61, 113, .09);
       text-align: center;
+      overflow: hidden;
+      transition: .24s ease;
+    }
+
+    .tool::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 79, 163, .12), rgba(139, 92, 246, .10));
+      opacity: 0;
       transition: .24s ease;
     }
 
     .tool:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
       box-shadow: var(--shadow-2);
     }
 
-    .tool .logo {
-      width: 44px;
-      height: 44px;
+    .tool:hover::before {
+      opacity: 1;
+    }
+
+    .tool-logo-wrap {
+      position: relative;
+      z-index: 1;
+      width: 72px;
+      height: 72px;
       display: grid;
       place-items: center;
-      margin: 0 auto 10px;
+      margin: 0 auto 12px;
+      border-radius: 24px;
+      background: #ffffff;
+      box-shadow: inset 0 0 0 1px rgba(43, 24, 42, .06), 0 14px 28px rgba(98, 66, 122, .12);
+    }
+
+    .tool-logo-wrap img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .tool-logo-fallback {
+      display: none;
+      width: 42px;
+      height: 42px;
+      place-items: center;
       border-radius: 16px;
       color: #fff;
       background: linear-gradient(135deg, var(--pink), var(--purple));
       font-weight: 900;
+      font-size: 15px;
+    }
+
+    .tool-logo-wrap img.logo-missing {
+      display: none;
+    }
+
+    .tool-logo-wrap img.logo-missing + .tool-logo-fallback {
+      display: grid;
+    }
+
+    .tool span,
+    .tool small {
+      position: relative;
+      z-index: 1;
     }
 
     .tool span {
+      display: block;
       color: var(--ink);
       font-size: 14px;
       font-weight: 900;
+      letter-spacing: -.02em;
     }
 
     .tool small {
@@ -733,6 +786,70 @@
       font-weight: 800;
       letter-spacing: -.08em;
       line-height: .9;
+    }
+
+    .project-photo {
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(135deg, rgba(255, 79, 163, .16), rgba(139, 92, 246, .16)),
+        #ffffff;
+    }
+
+    .project-photo::before,
+    .project-photo::after {
+      display: none;
+    }
+
+    .project-photo img {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 24px;
+      background: #ffffff;
+    }
+
+    .project-photo.contain img {
+      object-fit: contain;
+      padding: 10px;
+    }
+
+    .project-photo img.missing {
+      display: none;
+    }
+
+    .project-placeholder {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 100%;
+      min-height: 150px;
+      padding: 18px;
+      text-align: center;
+      color: #8e2d62;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      border: 1px dashed rgba(255, 79, 163, .35);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .58);
+    }
+
+    .project-placeholder small {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: none;
+      word-break: break-word;
     }
 
     .project-tag {
@@ -1145,7 +1262,7 @@
             <div class="chip"><i></i>Digital Marketing</div>
             <div class="chip"><i></i>Creative Design</div>
             <div class="chip"><i></i>Content Writing</div>
-            <div class="avatar" aria-label="Portrait of Shania Julialma"><img src="assets/profile.jpg" alt="Shania Julialma" /></div>
+            <div class="avatar" aria-label="Portrait of Shania Julialma"><img src="assets/profile.jpg" alt="Shania Julialma" onerror="this.style.display='none'" /></div>
           </div>
 
           <div class="stats-row" aria-label="Portfolio stats">
@@ -1250,34 +1367,84 @@
 
         <div class="tools-grid">
           <a class="tool reveal" href="https://www.canva.com/" target="_blank" rel="noopener">
-            <div class="logo">C</div><span>Canva</span><small>Design</small>
+            <div class="tool-logo-wrap">
+              <img src="https://cdn.simpleicons.org/canva" alt="Canva logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
+              <div class="tool-logo-fallback">C</div>
+            </div>
+            <span>Canva</span>
+            <small>Design</small>
           </a>
           <a class="tool reveal" href="https://www.microsoft.com/en/microsoft-365/word" target="_blank" rel="noopener">
-            <div class="logo">W</div><span>Microsoft Word</span><small>Writing</small>
+            <div class="tool-logo-wrap">
+              <img src="https://cdn.simpleicons.org/microsoftword/2B579A" alt="Microsoft Word logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
+              <div class="tool-logo-fallback">W</div>
+            </div>
+            <span>Microsoft Word</span>
+            <small>Writing</small>
           </a>
           <a class="tool reveal" href="https://www.microsoft.com/en-us/microsoft-365/excel" target="_blank" rel="noopener">
-            <div class="logo">X</div><span>Microsoft Excel</span><small>Data</small>
+            <div class="tool-logo-wrap">
+              <img src="https://cdn.simpleicons.org/microsoftexcel/217346" alt="Microsoft Excel logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
+              <div class="tool-logo-fallback">X</div>
+            </div>
+            <span>Microsoft Excel</span>
+            <small>Data</small>
           </a>
           <a class="tool reveal" href="https://www.adobe.com/products/photoshop.html" target="_blank" rel="noopener">
-            <div class="logo">Ps</div><span>Photoshop</span><small>Editing</small>
+            <div class="tool-logo-wrap">
+              <img src="https://cdn.simpleicons.org/adobephotoshop/31A8FF" alt="Photoshop logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
+              <div class="tool-logo-fallback">Ps</div>
+            </div>
+            <span>Photoshop</span>
+            <small>Editing</small>
           </a>
           <a class="tool reveal" href="https://www.adobe.com/products/premiere.html" target="_blank" rel="noopener">
-            <div class="logo">Pr</div><span>Premiere Pro</span><small>Video</small>
+            <div class="tool-logo-wrap">
+              <img src="https://cdn.simpleicons.org/adobepremierepro/9999FF" alt="Premiere Pro logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
+              <div class="tool-logo-fallback">Pr</div>
+            </div>
+            <span>Premiere Pro</span>
+            <small>Video</small>
           </a>
           <a class="tool reveal" href="https://www.capcut.com/tools/online-video-editor" target="_blank" rel="noopener">
-            <div class="logo">CC</div><span>CapCut</span><small>Video</small>
+            <div class="tool-logo-wrap">
+              <img src="https://cdn.simpleicons.org/capcut/000000" alt="CapCut logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
+              <div class="tool-logo-fallback">CC</div>
+            </div>
+            <span>CapCut</span>
+            <small>Video</small>
           </a>
           <a class="tool reveal" href="https://drive.google.com/" target="_blank" rel="noopener">
-            <div class="logo">GD</div><span>Google Drive</span><small>Cloud</small>
+            <div class="tool-logo-wrap">
+              <img src="https://cdn.simpleicons.org/googledrive" alt="Google Drive logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
+              <div class="tool-logo-fallback">GD</div>
+            </div>
+            <span>Google Drive</span>
+            <small>Cloud</small>
           </a>
           <a class="tool reveal" href="https://docs.google.com/presentation/create" target="_blank" rel="noopener">
-            <div class="logo">GS</div><span>Google Slides</span><small>Deck</small>
+            <div class="tool-logo-wrap">
+              <img src="https://cdn.simpleicons.org/googleslides/FBBC04" alt="Google Slides logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
+              <div class="tool-logo-fallback">GS</div>
+            </div>
+            <span>Google Slides</span>
+            <small>Deck</small>
           </a>
           <a class="tool reveal" href="https://vlognow.me/" target="_blank" rel="noopener">
-            <div class="logo">VN</div><span>VN Editor</span><small>Video</small>
+            <div class="tool-logo-wrap">
+              <img src="https://play-lh.googleusercontent.com/k8Uu9gHgYpBSCaQVVlQPJ8nZe12BKt6lMD3K0E4SNZDwKzDoC0tWbZ8dAPwVCiUM=w240-h480-rw" alt="VN Editor logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
+              <div class="tool-logo-fallback">VN</div>
+            </div>
+            <span>VN Editor</span>
+            <small>Video</small>
           </a>
           <a class="tool reveal" href="https://marvelapp.com/" target="_blank" rel="noopener">
-            <div class="logo">M</div><span>Marvel</span><small>Prototype</small>
+            <div class="tool-logo-wrap">
+              <img src="https://cdn.simpleicons.org/marvelapp/1FB6FF" alt="Marvel logo" loading="lazy" onerror="this.classList.add('logo-missing')" />
+              <div class="tool-logo-fallback">M</div>
+            </div>
+            <span>Marvel</span>
+            <small>Prototype</small>
           </a>
         </div>
       </div>
@@ -1303,9 +1470,29 @@
           <button class="filter-btn" data-filter="uiux" type="button">UI/UX</button>
         </div>
 
+        <!--
+  PROJECT PHOTO GUIDE:
+  Upload your project images into the folder assets/projects/ using the exact filenames below:
+  1. csr-indah-kiat.jpg
+  2. nuu-nct127.jpg
+  3. netflix-uiux.jpg
+  4. antangin-bingo.jpg
+  5. greenhope-campaign.jpg
+  6. shopee-xpress.jpg
+  7. mobile-legends-event.jpg
+  8. hardnews-social-media.jpg
+  9. kuy-jalan-travel.jpg
+
+  Recommended format: JPG or PNG, 1200px wide, compressed for web.
+  If a photo is not uploaded yet, the website will show a neat placeholder.
+-->
+
         <div class="projects-grid">
           <article class="project-card reveal" data-category="pr">
-            <div class="project-visual"><div class="project-letter">CSR</div></div>
+            <div class="project-visual project-photo contain">
+              <img src="assets/projects/csr-indah-kiat.jpg" alt="CSR & Stakeholder Communication — PT Indah Kiat" loading="lazy" onerror="this.classList.add('missing')" />
+              <div class="project-placeholder">CSR Indah Kiat<small>assets/projects/csr-indah-kiat.jpg</small></div>
+            </div>
             <span class="project-tag">Public Relations</span>
             <h3>CSR & Stakeholder Communication — PT Indah Kiat Internship</h3>
             <p>Communication support for CSR activities, exhibition programs, community assistance, stakeholder visits, and public-facing documentation.</p>
@@ -1313,7 +1500,10 @@
           </article>
 
           <article class="project-card reveal" data-category="design">
-            <div class="project-visual"><div class="project-letter">NCT</div></div>
+            <div class="project-visual project-photo contain">
+              <img src="assets/projects/nuu-nct127.jpg" alt="NUU Greentea x NCT 127 Promotional Design" loading="lazy" onerror="this.classList.add('missing')" />
+              <div class="project-placeholder">NUU x NCT 127<small>assets/projects/nuu-nct127.jpg</small></div>
+            </div>
             <span class="project-tag">Campaign Design</span>
             <h3>NUU Greentea x NCT 127 Promotional Design</h3>
             <p>Promotional design concept aimed at attracting K-pop audiences and supporting product awareness and sales through fan-oriented visuals.</p>
@@ -1321,7 +1511,10 @@
           </article>
 
           <article class="project-card reveal" data-category="uiux design">
-            <div class="project-visual"><div class="project-letter">UX</div></div>
+            <div class="project-visual project-photo contain">
+              <img src="assets/projects/netflix-uiux.jpg" alt="Netflix UI/UX Sign-Up Flow" loading="lazy" onerror="this.classList.add('missing')" />
+              <div class="project-placeholder">Netflix UI/UX<small>assets/projects/netflix-uiux.jpg</small></div>
+            </div>
             <span class="project-tag">UI/UX</span>
             <h3>Netflix Sign-Up Flow — Class Project</h3>
             <p>Mobile UI/UX concept that communicates a simple, accessible registration journey for potential Netflix users.</p>
@@ -1329,7 +1522,10 @@
           </article>
 
           <article class="project-card reveal" data-category="design">
-            <div class="project-visual"><div class="project-letter">SM</div></div>
+            <div class="project-visual project-photo contain">
+              <img src="assets/projects/antangin-bingo.jpg" alt="Antangin Bingo Social Media Feed" loading="lazy" onerror="this.classList.add('missing')" />
+              <div class="project-placeholder">Antangin Bingo<small>assets/projects/antangin-bingo.jpg</small></div>
+            </div>
             <span class="project-tag">Social Media</span>
             <h3>Antangin Bingo Feeds</h3>
             <p>Interactive social media feed concept designed to increase engagement, product awareness, and purchase interest.</p>
@@ -1337,7 +1533,10 @@
           </article>
 
           <article class="project-card reveal" data-category="pr">
-            <div class="project-visual"><div class="project-letter">GH</div></div>
+            <div class="project-visual project-photo contain">
+              <img src="assets/projects/greenhope-campaign.jpg" alt="Greenhope Sustainability Campaign" loading="lazy" onerror="this.classList.add('missing')" />
+              <div class="project-placeholder">Greenhope Campaign<small>assets/projects/greenhope-campaign.jpg</small></div>
+            </div>
             <span class="project-tag">PR Campaign</span>
             <h3>Greenhope Sustainability Campaign</h3>
             <p>Public information concept to communicate environmental risks of conventional plastic and introduce oxium-based alternatives.</p>
@@ -1345,7 +1544,10 @@
           </article>
 
           <article class="project-card reveal" data-category="pr">
-            <div class="project-visual"><div class="project-letter">SX</div></div>
+            <div class="project-visual project-photo contain">
+              <img src="assets/projects/shopee-xpress.jpg" alt="Shopee Xpress Trust Campaign" loading="lazy" onerror="this.classList.add('missing')" />
+              <div class="project-placeholder">Shopee Xpress<small>assets/projects/shopee-xpress.jpg</small></div>
+            </div>
             <span class="project-tag">PR Campaign</span>
             <h3>Shopee Xpress Trust Campaign</h3>
             <p>Class project communication concept designed to build public trust toward delivery speed and service reliability.</p>
@@ -1353,7 +1555,10 @@
           </article>
 
           <article class="project-card reveal" data-category="design">
-            <div class="project-visual"><div class="project-letter">EV</div></div>
+            <div class="project-visual project-photo contain">
+              <img src="assets/projects/mobile-legends-event.jpg" alt="Mobile Legends Event Flyer" loading="lazy" onerror="this.classList.add('missing')" />
+              <div class="project-placeholder">Mobile Legends Event<small>assets/projects/mobile-legends-event.jpg</small></div>
+            </div>
             <span class="project-tag">Event Design</span>
             <h3>Mobile Legends Event Flyer</h3>
             <p>Game-event promotional flyer for MLBB audiences, combining event information, gaming visuals, and campaign communication.</p>
@@ -1361,7 +1566,10 @@
           </article>
 
           <article class="project-card reveal" data-category="writing">
-            <div class="project-visual"><div class="project-letter">HN</div></div>
+            <div class="project-visual project-photo contain">
+              <img src="assets/projects/hardnews-social-media.jpg" alt="Hardnews — Social Media & Technology" loading="lazy" onerror="this.classList.add('missing')" />
+              <div class="project-placeholder">Hardnews Social Media<small>assets/projects/hardnews-social-media.jpg</small></div>
+            </div>
             <span class="project-tag">Writing</span>
             <h3>Hardnews — Social Media & Technology</h3>
             <p>Hardnews pieces about social media developments, new platforms, and feature innovation in digital technology.</p>
@@ -1369,7 +1577,10 @@
           </article>
 
           <article class="project-card reveal" data-category="design">
-            <div class="project-visual"><div class="project-letter">TR</div></div>
+            <div class="project-visual project-photo contain">
+              <img src="assets/projects/kuy-jalan-travel.jpg" alt="Kuy Jalan Travel Brochure" loading="lazy" onerror="this.classList.add('missing')" />
+              <div class="project-placeholder">Kuy Jalan Travel<small>assets/projects/kuy-jalan-travel.jpg</small></div>
+            </div>
             <span class="project-tag">Design</span>
             <h3>Kuy Jalan Travel Brochure</h3>
             <p>Travel brochure design created to attract audiences who enjoy traveling and encourage them to use Kuy Jalan services.</p>
