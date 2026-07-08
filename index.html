@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal portfolio website of Shania Julialma — Communication Science Graduate, Public Relations, Digital Marketing, and Creative Content." />
+  <meta name="keywords" content="Shania Julialma, Public Relations, Digital Marketing, Creative Content, Communication Science, Portfolio" />
+  <meta name="author" content="Shania Julialma" />
+
+  <meta property="og:title" content="Shania Julialma — Creative Communication Portfolio" />
+  <meta property="og:description" content="Portfolio of PR, digital marketing, creative content, campaign design, CSR communication, and writing projects." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shyashania31.github.io/" />
+
+  <title>Shania Julialma | Creative Communication Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #fff7fb;
+      --bg-2: #fff1f7;
+      --ink: #221523;
+      --muted: #766575;
+      --line: rgba(43, 24, 42, .12);
+      --card: rgba(255, 255, 255, .78);
+      --card-solid: #ffffff;
+      --pink: #ff4fa3;
+      --pink-2: #ff8ac7;
+      --rose: #ffd4e8;
+      --purple: #8b5cf6;
+      --purple-2: #c084fc;
+      --orange: #ff9b72;
+      --mint: #70e2bd;
+      --yellow: #ffe38a;
+      --shadow: 0 24px 70px rgba(168, 71, 121, .18);
+      --shadow-2: 0 14px 35px rgba(98, 66, 122, .14);
+      --radius: 28px;
+      --max: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(255, 79, 163, .22), transparent 30%),
+        radial-gradient(circle at 90% 15%, rgba(139, 92, 246, .20), transparent 28%),
+        radial-gradient(circle at 75% 85%, rgba(112, 226, 189, .18), transparent 26%),
+        linear-gradient(135deg, var(--bg), var(--bg-2));
+      color: var(--ink);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      width: 420px;
+      height: 420px;
+      border-radius: 999px;
+      pointer-events: none;
+      z-index: -1;
+      filter: blur(10px);
+      opacity: .55;
+    }
+
+    body::before {
+      left: -160px;
+      top: 120px;
+      background: radial-gradient(circle, rgba(255, 138, 199, .38), transparent 70%);
+    }
+
+    body::after {
+      right: -160px;
+      bottom: -40px;
+      background: radial-gradient(circle, rgba(139, 92, 246, .26), transparent 70%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 14px;
+      background: var(--ink);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 12px;
+      z-index: 999;
+    }
+
+    .skip-link:focus {
+      left: 14px;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 14px;
+      z-index: 99;
+      padding: 14px 0;
+      pointer-events: none;
+    }
+
+    .nav {
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .72);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 14px 35px rgba(118, 61, 110, .10);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: -.03em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      box-shadow: 0 10px 20px rgba(255, 79, 163, .28);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-links a {
+      padding: 10px 13px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 999px;
+      transition: .24s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: var(--ink);
+      background: rgba(255, 79, 163, .10);
+      outline: none;
+    }
+
+    .nav-action {
+      padding: 10px 15px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      box-shadow: 0 12px 22px rgba(255, 79, 163, .24);
+      transition: transform .24s ease, box-shadow .24s ease;
+    }
+
+    .nav-action:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(255, 79, 163, .32);
+    }
+
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: transparent;
+      font: inherit;
+      cursor: pointer;
+      color: var(--ink);
+    }
+
+    .hero {
+      padding: 72px 0 54px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      align-items: center;
+      gap: 42px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 79, 163, .20);
+      border-radius: 999px;
+      color: #9f2f67;
+      background: rgba(255, 255, 255, .64);
+      font-size: 13px;
+      font-weight: 800;
+      box-shadow: 0 8px 26px rgba(255, 79, 163, .08);
+    }
+
+    .eyebrow span {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--mint);
+      box-shadow: 0 0 0 6px rgba(112, 226, 189, .16);
+    }
+
+    h1 {
+      margin-top: 18px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(52px, 8vw, 92px);
+      line-height: .94;
+      letter-spacing: -.06em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(120deg, var(--pink), var(--purple), #2fbf9d);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      margin-top: 20px;
+      max-width: 680px;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 22px);
+    }
+
+    .hero-subtitle strong {
+      color: var(--ink);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 48px;
+      padding: 13px 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 900;
+      letter-spacing: -.02em;
+      transition: .24s ease;
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      box-shadow: 0 18px 38px rgba(255, 79, 163, .25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 44px rgba(255, 79, 163, .34);
+    }
+
+    .btn-secondary {
+      color: var(--ink);
+      background: rgba(255, 255, 255, .76);
+      border-color: var(--line);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 79, 163, .28);
+      box-shadow: var(--shadow-2);
+    }
+
+    .hero-card {
+      position: relative;
+      isolation: isolate;
+      padding: 26px;
+      border: 1px solid rgba(255, 255, 255, .66);
+      border-radius: 38px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, .76), rgba(255, 255, 255, .42)),
+        linear-gradient(135deg, rgba(255, 79, 163, .12), rgba(139, 92, 246, .12));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border: 1px dashed rgba(255, 79, 163, .28);
+      border-radius: 30px;
+      z-index: -1;
+    }
+
+    .profile-art {
+      position: relative;
+      min-height: 420px;
+      display: grid;
+      place-items: center;
+    }
+
+    .avatar {
+      width: min(330px, 80vw);
+      height: min(330px, 80vw);
+      position: relative;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 40% 32%, #fff 0 22%, transparent 23%),
+        linear-gradient(135deg, #ffd5e9, #f99fca 46%, #9a7bff);
+      box-shadow: inset 0 0 0 14px rgba(255, 255, 255, .48), 0 30px 65px rgba(197, 55, 125, .24);
+    }
+
+    .avatar::before {
+      content: "SJ";
+      display: grid;
+      place-items: center;
+      width: 58%;
+      height: 58%;
+      border-radius: 42px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      font-family: "Playfair Display", serif;
+      font-size: 88px;
+      font-weight: 800;
+      letter-spacing: -.08em;
+      box-shadow: 0 20px 45px rgba(91, 57, 139, .24);
+    }
+
+    .orbit {
+      position: absolute;
+      border: 1px solid rgba(255, 79, 163, .22);
+      border-radius: 999px;
+      animation: spin 18s linear infinite;
+    }
+
+    .orbit.one {
+      width: 390px;
+      height: 390px;
+    }
+
+    .orbit.two {
+      width: 300px;
+      height: 300px;
+      animation-duration: 24s;
+      animation-direction: reverse;
+      border-style: dashed;
+    }
+
+    .chip {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 12px;
+      border: 1px solid rgba(255, 255, 255, .68);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .84);
+      box-shadow: 0 14px 30px rgba(121, 61, 113, .13);
+      font-size: 13px;
+      font-weight: 900;
+      color: var(--ink);
+    }
+
+    .chip:nth-of-type(1) {
+      left: 18px;
+      top: 40px;
+    }
+
+    .chip:nth-of-type(2) {
+      right: 2px;
+      top: 118px;
+    }
+
+    .chip:nth-of-type(3) {
+      left: 4px;
+      bottom: 80px;
+    }
+
+    .chip:nth-of-type(4) {
+      right: 24px;
+      bottom: 36px;
+    }
+
+    .chip i {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--pink);
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .stat {
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, .62);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .60);
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 27px;
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+
+    section {
+      padding: 78px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+
+    .kicker {
+      display: inline-flex;
+      margin-bottom: 10px;
+      color: #ae2e71;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1;
+      letter-spacing: -.05em;
+    }
+
+    .section-desc {
+      max-width: 480px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .88fr 1.12fr;
+      gap: 24px;
+    }
+
+    .glass-card {
+      border: 1px solid rgba(255, 255, 255, .70);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow-2);
+      backdrop-filter: blur(18px);
+    }
+
+    .bio-card {
+      padding: 28px;
+    }
+
+    .bio-card p {
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 11px;
+      margin-top: 22px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255, 241, 247, .75);
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .info-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .strength-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .strength-card {
+      padding: 22px;
+      min-height: 190px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, .70);
+      background: rgba(255, 255, 255, .70);
+      box-shadow: 0 14px 35px rgba(98, 66, 122, .09);
+      transition: .24s ease;
+    }
+
+    .strength-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-2);
+    }
+
+    .strength-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 17px;
+      color: #fff;
+      font-size: 22px;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+    }
+
+    .strength-card h3,
+    .project-card h3 {
+      font-size: 19px;
+      line-height: 1.25;
+      letter-spacing: -.03em;
+    }
+
+    .strength-card p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .tool {
+      padding: 18px 14px;
+      border: 1px solid rgba(255, 255, 255, .68);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .72);
+      box-shadow: 0 14px 30px rgba(121, 61, 113, .09);
+      text-align: center;
+      transition: .24s ease;
+    }
+
+    .tool:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-2);
+    }
+
+    .tool .logo {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 10px;
+      border-radius: 16px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      font-weight: 900;
+    }
+
+    .tool span {
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .tool small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: -8px 0 24px;
+    }
+
+    .filter-btn {
+      padding: 10px 14px;
+      border: 1px solid rgba(255, 79, 163, .18);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, .62);
+      font: inherit;
+      font-size: 14px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: .24s ease;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      color: #fff;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      box-shadow: 0 12px 25px rgba(255, 79, 163, .18);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .project-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 380px;
+      padding: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .74);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, .72);
+      box-shadow: 0 18px 42px rgba(121, 61, 113, .10);
+      transition: .28s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow);
+    }
+
+    .project-visual {
+      position: relative;
+      min-height: 150px;
+      margin-bottom: 18px;
+      border-radius: 24px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, .76), transparent 25%),
+        linear-gradient(135deg, rgba(255, 79, 163, .78), rgba(139, 92, 246, .72));
+    }
+
+    .project-visual::before,
+    .project-visual::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .33);
+    }
+
+    .project-visual::before {
+      width: 140px;
+      height: 140px;
+      left: -38px;
+      bottom: -40px;
+    }
+
+    .project-visual::after {
+      width: 94px;
+      height: 94px;
+      right: -22px;
+      top: -20px;
+    }
+
+    .project-letter {
+      position: absolute;
+      left: 18px;
+      bottom: 12px;
+      color: rgba(255, 255, 255, .96);
+      font-family: "Playfair Display", serif;
+      font-size: 64px;
+      font-weight: 800;
+      letter-spacing: -.08em;
+      line-height: .9;
+    }
+
+    .project-tag {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 12px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      color: #8e2d62;
+      background: rgba(255, 212, 232, .76);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .project-card p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: auto;
+      padding-top: 18px;
+    }
+
+    .skill-tags span {
+      padding: 6px 9px;
+      border-radius: 999px;
+      color: #53334d;
+      background: rgba(255, 241, 247, .88);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 19px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(var(--pink), var(--purple));
+      opacity: .25;
+    }
+
+    .timeline-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+    }
+
+    .timeline-dot {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      box-shadow: 0 10px 24px rgba(255, 79, 163, .25);
+      z-index: 1;
+      font-weight: 900;
+    }
+
+    .timeline-card {
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, .68);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, .72);
+      box-shadow: 0 14px 35px rgba(98, 66, 122, .09);
+    }
+
+    .timeline-card h3 {
+      font-size: 18px;
+      letter-spacing: -.03em;
+    }
+
+    .timeline-card p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .cert {
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, .70);
+      background: rgba(255, 255, 255, .72);
+      box-shadow: 0 12px 30px rgba(121, 61, 113, .08);
+      font-weight: 900;
+      letter-spacing: -.02em;
+    }
+
+    .cert::before {
+      content: "✦";
+      display: inline-grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      margin-right: 8px;
+      border-radius: 10px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+    }
+
+    .contact {
+      padding-bottom: 96px;
+    }
+
+    .contact-card {
+      position: relative;
+      overflow: hidden;
+      padding: 42px;
+      border-radius: 36px;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(255, 255, 255, .42), transparent 22%),
+        linear-gradient(135deg, var(--pink), var(--purple));
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card::after {
+      content: "";
+      position: absolute;
+      right: -100px;
+      top: -120px;
+      width: 340px;
+      height: 340px;
+      border-radius: 999px;
+      border: 32px solid rgba(255, 255, 255, .14);
+    }
+
+    .contact-card h2 {
+      color: #fff;
+    }
+
+    .contact-card p {
+      margin-top: 12px;
+      max-width: 640px;
+      color: rgba(255, 255, 255, .86);
+      font-size: 18px;
+    }
+
+    .contact-actions {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .contact-actions .btn {
+      background: rgba(255, 255, 255, .18);
+      color: #fff;
+      border-color: rgba(255, 255, 255, .34);
+    }
+
+    .contact-actions .btn:hover {
+      background: rgba(255, 255, 255, .28);
+      transform: translateY(-3px);
+    }
+
+    footer {
+      padding: 26px 0 42px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .to-top {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .68);
+      border-radius: 16px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      box-shadow: 0 14px 30px rgba(255, 79, 163, .25);
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+      transition: .24s ease;
+      z-index: 80;
+    }
+
+    .to-top.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: .65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .tools-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .nav {
+        border-radius: 24px;
+      }
+
+      .menu-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        background: rgba(255, 79, 163, .10);
+        font-weight: 900;
+      }
+
+      .nav-links {
+        position: absolute;
+        left: 14px;
+        right: 14px;
+        top: 76px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, .92);
+        box-shadow: var(--shadow-2);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        text-align: center;
+      }
+
+      .nav-action {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 40px;
+      }
+
+      .profile-art {
+        min-height: 340px;
+      }
+
+      .avatar {
+        width: 245px;
+        height: 245px;
+      }
+
+      .avatar::before {
+        font-size: 64px;
+        border-radius: 30px;
+      }
+
+      .orbit.one {
+        width: 292px;
+        height: 292px;
+      }
+
+      .orbit.two {
+        width: 226px;
+        height: 226px;
+      }
+
+      .chip {
+        font-size: 11px;
+      }
+
+      .stats-row,
+      .strength-grid,
+      .projects-grid,
+      .tools-grid,
+      .cert-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-desc {
+        margin-top: 12px;
+      }
+
+      section {
+        padding: 56px 0;
+      }
+
+      .contact-card {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="#home" aria-label="Shania Julialma home">
+        <span class="brand-mark">SJ</span>
+        <span>Shania Julialma</span>
+      </a>
+
+      <button class="menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Works</a>
+        <a href="#experience">Experience</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a class="nav-action" href="mailto:ShaniaJulialmax@gmail.com">Let’s Connect</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span></span> Creative Communication Portfolio</div>
+          <h1>Hi, I’m <span class="gradient-text">Shania Julialma</span></h1>
+          <p class="hero-subtitle">
+            A Communication Science graduate focused on <strong>public relations</strong>,
+            <strong>digital marketing</strong>, <strong>creative content</strong>, and
+            <strong>campaign storytelling</strong>.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#projects">View Portfolio Works</a>
+            <a class="btn btn-secondary" href="mailto:ShaniaJulialmax@gmail.com">Email Me</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/shaniajulialma/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+
+        <aside class="hero-card reveal" aria-label="Portfolio highlight card">
+          <div class="profile-art">
+            <div class="orbit one"></div>
+            <div class="orbit two"></div>
+            <div class="chip"><i></i>Public Relations</div>
+            <div class="chip"><i></i>Digital Marketing</div>
+            <div class="chip"><i></i>Creative Design</div>
+            <div class="chip"><i></i>Content Writing</div>
+            <div class="avatar" aria-label="Initials SJ decorative profile illustration"></div>
+          </div>
+
+          <div class="stats-row" aria-label="Portfolio stats">
+            <div class="stat">
+              <strong>20+</strong>
+              <span>Works</span>
+            </div>
+            <div class="stat">
+              <strong>4</strong>
+              <span>Focus Areas</span>
+            </div>
+            <div class="stat">
+              <strong>2020—2022</strong>
+              <span>Portfolio</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="kicker">About Me</span>
+            <h2>Communication-minded, creative, adaptable, and audience-focused.</h2>
+          </div>
+          <p class="section-desc">
+            I combine communication strategy, visual content, and public-facing storytelling to help messages feel clear, relevant, and memorable.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="glass-card bio-card reveal">
+            <h3>Profile Summary</h3>
+            <p>
+              I am a Bachelor graduate in Communication Science from Multimedia Nusantara University
+              with interests in digital marketing, public relations, media and event planning, public affairs,
+              editing, content creation, writing, and non-profit communication.
+            </p>
+            <p>
+              My work includes hardnews writing, public relation campaigns, digital promotional design,
+              CSR communication, event support, social media concepts, and company culture storytelling.
+            </p>
+
+            <div class="info-list">
+              <div class="info-item">
+                <span class="info-icon">📍</span>
+                <span>Serpong Utara, Tangerang Selatan</span>
+              </div>
+              <a class="info-item" href="mailto:ShaniaJulialmax@gmail.com">
+                <span class="info-icon">✉️</span>
+                <span>ShaniaJulialmax@gmail.com</span>
+              </a>
+              <a class="info-item" href="https://www.linkedin.com/in/shaniajulialma/" target="_blank" rel="noopener">
+                <span class="info-icon">🔗</span>
+                <span>linkedin.com/in/shaniajulialma</span>
+              </a>
+            </div>
+          </article>
+
+          <div class="strength-grid">
+            <article class="strength-card reveal">
+              <div class="strength-icon">PR</div>
+              <h3>Public Relations & Stakeholder Communication</h3>
+              <p>CSR communication, media relations, stakeholder visit documentation, and public information materials.</p>
+            </article>
+
+            <article class="strength-card reveal">
+              <div class="strength-icon">DM</div>
+              <h3>Digital Marketing & Brand Communication</h3>
+              <p>Campaign concepts, product awareness content, audience targeting, and social media engagement ideas.</p>
+            </article>
+
+            <article class="strength-card reveal">
+              <div class="strength-icon">CD</div>
+              <h3>Creative Content & Visual Design</h3>
+              <p>Posters, flyers, brochures, company profile visuals, social media feeds, and UI/UX concepts.</p>
+            </article>
+
+            <article class="strength-card reveal">
+              <div class="strength-icon">WR</div>
+              <h3>Writing & Editorial</h3>
+              <p>Hardnews writing, campaign copy, communication storytelling, captions, and information delivery.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="kicker">Tools & Platforms</span>
+            <h2>Tools used for design, writing, presentation, and content production.</h2>
+          </div>
+          <p class="section-desc">
+            Click each tool to open its official website or web platform.
+          </p>
+        </div>
+
+        <div class="tools-grid">
+          <a class="tool reveal" href="https://www.canva.com/" target="_blank" rel="noopener">
+            <div class="logo">C</div><span>Canva</span><small>Design</small>
+          </a>
+          <a class="tool reveal" href="https://www.microsoft.com/en/microsoft-365/word" target="_blank" rel="noopener">
+            <div class="logo">W</div><span>Microsoft Word</span><small>Writing</small>
+          </a>
+          <a class="tool reveal" href="https://www.microsoft.com/en-us/microsoft-365/excel" target="_blank" rel="noopener">
+            <div class="logo">X</div><span>Microsoft Excel</span><small>Data</small>
+          </a>
+          <a class="tool reveal" href="https://www.adobe.com/products/photoshop.html" target="_blank" rel="noopener">
+            <div class="logo">Ps</div><span>Photoshop</span><small>Editing</small>
+          </a>
+          <a class="tool reveal" href="https://www.adobe.com/products/premiere.html" target="_blank" rel="noopener">
+            <div class="logo">Pr</div><span>Premiere Pro</span><small>Video</small>
+          </a>
+          <a class="tool reveal" href="https://www.capcut.com/tools/online-video-editor" target="_blank" rel="noopener">
+            <div class="logo">CC</div><span>CapCut</span><small>Video</small>
+          </a>
+          <a class="tool reveal" href="https://drive.google.com/" target="_blank" rel="noopener">
+            <div class="logo">GD</div><span>Google Drive</span><small>Cloud</small>
+          </a>
+          <a class="tool reveal" href="https://docs.google.com/presentation/create" target="_blank" rel="noopener">
+            <div class="logo">GS</div><span>Google Slides</span><small>Deck</small>
+          </a>
+          <a class="tool reveal" href="https://vlognow.me/" target="_blank" rel="noopener">
+            <div class="logo">VN</div><span>VN Editor</span><small>Video</small>
+          </a>
+          <a class="tool reveal" href="https://marvelapp.com/" target="_blank" rel="noopener">
+            <div class="logo">M</div><span>Marvel</span><small>Prototype</small>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="kicker">Selected Works</span>
+            <h2>Portfolio works across PR, creative design, campaigns, and writing.</h2>
+          </div>
+          <p class="section-desc">
+            A curated collection from class projects, internship outputs, campaign concepts, and creative communication works.
+          </p>
+        </div>
+
+        <div class="filter-row reveal" aria-label="Project filters">
+          <button class="filter-btn active" data-filter="all" type="button">All</button>
+          <button class="filter-btn" data-filter="pr" type="button">Public Relations</button>
+          <button class="filter-btn" data-filter="design" type="button">Design</button>
+          <button class="filter-btn" data-filter="writing" type="button">Writing</button>
+          <button class="filter-btn" data-filter="uiux" type="button">UI/UX</button>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal" data-category="pr">
+            <div class="project-visual"><div class="project-letter">CSR</div></div>
+            <span class="project-tag">Public Relations</span>
+            <h3>CSR & Stakeholder Communication — PT Indah Kiat Internship</h3>
+            <p>Communication support for CSR activities, exhibition programs, community assistance, stakeholder visits, and public-facing documentation.</p>
+            <div class="skill-tags"><span>CSR</span><span>Stakeholder</span><span>Event PR</span></div>
+          </article>
+
+          <article class="project-card reveal" data-category="design">
+            <div class="project-visual"><div class="project-letter">NCT</div></div>
+            <span class="project-tag">Campaign Design</span>
+            <h3>NUU Greentea x NCT 127 Promotional Design</h3>
+            <p>Promotional design concept aimed at attracting K-pop audiences and supporting product awareness and sales through fan-oriented visuals.</p>
+            <div class="skill-tags"><span>Promotion</span><span>Brand</span><span>Audience Targeting</span></div>
+          </article>
+
+          <article class="project-card reveal" data-category="uiux design">
+            <div class="project-visual"><div class="project-letter">UX</div></div>
+            <span class="project-tag">UI/UX</span>
+            <h3>Netflix Sign-Up Flow — Class Project</h3>
+            <p>Mobile UI/UX concept that communicates a simple, accessible registration journey for potential Netflix users.</p>
+            <div class="skill-tags"><span>UI Flow</span><span>Prototype</span><span>Onboarding</span></div>
+          </article>
+
+          <article class="project-card reveal" data-category="design">
+            <div class="project-visual"><div class="project-letter">SM</div></div>
+            <span class="project-tag">Social Media</span>
+            <h3>Antangin Bingo Feeds</h3>
+            <p>Interactive social media feed concept designed to increase engagement, product awareness, and purchase interest.</p>
+            <div class="skill-tags"><span>Engagement</span><span>Feeds</span><span>Brand Awareness</span></div>
+          </article>
+
+          <article class="project-card reveal" data-category="pr">
+            <div class="project-visual"><div class="project-letter">GH</div></div>
+            <span class="project-tag">PR Campaign</span>
+            <h3>Greenhope Sustainability Campaign</h3>
+            <p>Public information concept to communicate environmental risks of conventional plastic and introduce oxium-based alternatives.</p>
+            <div class="skill-tags"><span>Sustainability</span><span>Public Info</span><span>Campaign</span></div>
+          </article>
+
+          <article class="project-card reveal" data-category="pr">
+            <div class="project-visual"><div class="project-letter">SX</div></div>
+            <span class="project-tag">PR Campaign</span>
+            <h3>Shopee Xpress Trust Campaign</h3>
+            <p>Class project communication concept designed to build public trust toward delivery speed and service reliability.</p>
+            <div class="skill-tags"><span>Trust</span><span>Service Brand</span><span>Messaging</span></div>
+          </article>
+
+          <article class="project-card reveal" data-category="design">
+            <div class="project-visual"><div class="project-letter">EV</div></div>
+            <span class="project-tag">Event Design</span>
+            <h3>Mobile Legends Event Flyer</h3>
+            <p>Game-event promotional flyer for MLBB audiences, combining event information, gaming visuals, and campaign communication.</p>
+            <div class="skill-tags"><span>Event</span><span>Flyer</span><span>Gaming</span></div>
+          </article>
+
+          <article class="project-card reveal" data-category="writing">
+            <div class="project-visual"><div class="project-letter">HN</div></div>
+            <span class="project-tag">Writing</span>
+            <h3>Hardnews — Social Media & Technology</h3>
+            <p>Hardnews pieces about social media developments, new platforms, and feature innovation in digital technology.</p>
+            <div class="skill-tags"><span>News Writing</span><span>Tech Topic</span><span>Editorial</span></div>
+          </article>
+
+          <article class="project-card reveal" data-category="design">
+            <div class="project-visual"><div class="project-letter">TR</div></div>
+            <span class="project-tag">Design</span>
+            <h3>Kuy Jalan Travel Brochure</h3>
+            <p>Travel brochure design created to attract audiences who enjoy traveling and encourage them to use Kuy Jalan services.</p>
+            <div class="skill-tags"><span>Brochure</span><span>Travel</span><span>Promotion</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="kicker">Experience & Work Focus</span>
+            <h2>Projects that connect brand messages with real audiences.</h2>
+          </div>
+          <p class="section-desc">
+            The portfolio shows a mix of internship-based communication work and academic/class project outputs.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-dot">1</div>
+            <article class="timeline-card">
+              <h3>PT Indah Kiat Pulp & Paper — Internship Communication Works</h3>
+              <p>Created and supported communication materials for CSR, stakeholder relationship, employee information design, company culture video, and public relation activities.</p>
+            </article>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot">2</div>
+            <article class="timeline-card">
+              <h3>Campaign & Brand Communication Projects</h3>
+              <p>Developed class-project outputs for Greenhope, Shopee Xpress, Gojek x Halodoc, Antangin, Xiboba, NUU Greentea, Kuy Jalan Travel, and other campaign concepts.</p>
+            </article>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot">3</div>
+            <article class="timeline-card">
+              <h3>Content, Design, and Editorial Portfolio</h3>
+              <p>Produced hardnews, brochures, posters, social media feeds, company profile visuals, UI/UX concept screens, and video communication assets.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificates">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="kicker">Certificates</span>
+            <h2>Learning background in creative, digital, and communication fields.</h2>
+          </div>
+          <p class="section-desc">
+            Certificates and participation records from design, digital marketing, language, communication, and creative writing activities.
+          </p>
+        </div>
+
+        <div class="cert-grid">
+          <div class="cert reveal">UI/UX Fundamental</div>
+          <div class="cert reveal">Logo Design Competition</div>
+          <div class="cert reveal">Digital Marketing</div>
+          <div class="cert reveal">Foreign Language — Mandarin</div>
+          <div class="cert reveal">Prodia Participation</div>
+          <div class="cert reveal">Kompas Webinar</div>
+          <div class="cert reveal">Brand Campaign Touchpoints</div>
+          <div class="cert reveal">Creative Copywriting</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-card reveal">
+          <span class="kicker" style="color: rgba(255,255,255,.78)">Contact</span>
+          <h2>Let’s build meaningful communication together.</h2>
+          <p>
+            Open to opportunities related to public relations, digital marketing, creative content,
+            media/event planning, campaign communication, and writing.
+          </p>
+
+          <div class="contact-actions">
+            <a class="btn" href="mailto:ShaniaJulialmax@gmail.com">Email Shania</a>
+            <a class="btn" href="https://www.linkedin.com/in/shaniajulialma/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+            <a class="btn" href="https://github.com/Shyashania31" target="_blank" rel="noopener">GitHub Profile</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="to-top" href="#home" aria-label="Back to top">↑</a>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Shania Julialma. Designed for GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    const navLinks = document.querySelector('#navLinks');
+    const toTop = document.querySelector('.to-top');
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+      menuBtn.textContent = isOpen ? '×' : '☰';
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.textContent = '☰';
+      });
+    });
+
+    document.querySelector('#year').textContent = new Date().getFullYear();
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    window.addEventListener('scroll', () => {
+      toTop.classList.toggle('show', window.scrollY > 650);
+    });
+
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const filter = button.dataset.filter;
+
+        projectCards.forEach(card => {
+          const categories = card.dataset.category.split(' ');
+          const show = filter === 'all' || categories.includes(filter);
+          card.style.display = show ? 'flex' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
